@@ -1,12 +1,15 @@
 package uvce.com.thewaiterbuddy;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -14,12 +17,12 @@ public class MenuActivity extends AppCompatActivity {
     public static final String TAG = "APPATHON";
     private static ArrayList<CartItem> cartItems = new ArrayList<>();
     private ArrayList<FoodItem> foodItems;
-    private FoodListAdapter listAdapter;
+    private MenuAdapter menuAdapter;
 
     public static void addFoodItem(FoodItem foodItem, int id) {
         cartItems.add(new CartItem(foodItem, 1, id));
 
-        Log.i(TAG, "Added food item at position: " + String.valueOf(id));
+        Log.i(TAG, "Added food item at position: " + id);
     }
 
     public static void updateQuantity(int quantity, int id) {
@@ -30,8 +33,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         }
 
-        Log.i(TAG, "Updated cart item quantity at: " + String.valueOf(id)
-                + " to: " + String.valueOf(quantity));
+        Log.i(TAG, "Updated cart item quantity at: " + id + " to: " + quantity);
     }
 
     public static void deleteFoodItem(int id) {
@@ -42,7 +44,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         }
 
-        Log.i(TAG, "Deleted cart item at: " + String.valueOf(id));
+        Log.i(TAG, "Deleted cart item at: " + id);
     }
 
     @Override
@@ -56,14 +58,23 @@ public class MenuActivity extends AppCompatActivity {
 
         foodItems = new ArrayList<>();
         populateFoodItems();
-
         Log.i(TAG, "Food item list populated");
 
-        listAdapter = new FoodListAdapter(getApplicationContext(), R.layout.food_item, foodItems);
-        ListView listView = findViewById(R.id.food_list);
-        listView.setAdapter(listAdapter);
+        menuAdapter = new MenuAdapter(foodItems, getApplicationContext());
+        initRecyclerView();
+        Log.i(TAG, "Recycler view adapter set");
+    }
 
-        Log.i(TAG, "List view adapter set");
+    private void initRecyclerView() {
+        RecyclerView mRecyclerView = findViewById(R.id.food_list);
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
+
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        mRecyclerView.setNestedScrollingEnabled(false);
+
+        int spacing = getResources().getDimensionPixelSize(R.dimen.spacing);
+        mRecyclerView.addItemDecoration(new SpacesItemDecoration(spacing));
+        mRecyclerView.setAdapter(menuAdapter);
     }
 
     private void populateFoodItems() {
@@ -98,5 +109,25 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(checkoutIntent);
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class SpacesItemDecoration extends RecyclerView.ItemDecoration {
+        private int space;
+
+        SpacesItemDecoration(int spacing) {
+            this.space = spacing;
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view,
+                                   RecyclerView parent, RecyclerView.State state) {
+            outRect.bottom = space;
+
+            if (parent.getChildLayoutPosition(view) == 0) {
+                outRect.top = space;
+            } else {
+                outRect.top = 0;
+            }
+        }
     }
 }

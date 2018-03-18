@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class CartItem extends FoodItem implements Parcelable {
-    public static final String TYPE = "cartitem";
     public static final Creator<CartItem> CREATOR = new Creator<CartItem>() {
         @Override
         public CartItem createFromParcel(Parcel in) {
@@ -16,20 +15,23 @@ public class CartItem extends FoodItem implements Parcelable {
             return new CartItem[size];
         }
     };
+    static final String TYPE = "cartitem";
     private int quantity, id;
+    private boolean selected;
 
-    public CartItem(FoodItem foodItem, int _quantity, int _id) {
+    CartItem(FoodItem foodItem, int _quantity, int _id) {
         super(foodItem.getName(), foodItem.getCost());
         quantity = _quantity;
         id = _id;
+        selected = false;
     }
 
-    public CartItem(Parcel in) {
+    private CartItem(Parcel in) {
         super(in.readString(), in.readDouble());
         quantity = in.readInt();
     }
 
-    public int getQuantity() {
+    int getQuantity() {
         return quantity;
     }
 

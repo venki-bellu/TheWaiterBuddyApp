@@ -17,9 +17,9 @@ public class CheckoutActivity extends AppCompatActivity {
 
         checkoutItems = getIntent().getParcelableArrayListExtra(CartItem.TYPE);
 
+        Log.i(TAG, checkoutItems.size() + " items in cart.");
         for (CartItem item : checkoutItems) {
-            Log.i(TAG, item.getName() + ", "
-                    + String.valueOf(item.getQuantity()));
+            Log.i(TAG, item.getName() + " x " + item.getQuantity());
         }
     }
 }
