@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,11 @@ import java.util.List;
 
 public class LogInActivity extends AppCompatActivity {
     Spinner tableno;
+    Button login;
+    EditText password, userid;
+    String[] a, b;
+    int count1,count2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,30 +49,30 @@ public class LogInActivity extends AppCompatActivity {
         };
 
         final List<String> plantsList = new ArrayList<>(Arrays.asList(plants));
-
-        // Initializing an ArrayAdapter
         final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this,R.layout.spinner_item,plantsList){
-            @Override
-            public boolean isEnabled(int position){
+                this, R.layout.spinner_item, plantsList) {
 
-                //making first item non-clickable
-                if(position == 0)
+            //making first item non-clickable
+            @Override
+            public boolean isEnabled(int position) {
+
+
+                if (position == 0)
                     return false;
 
                 else
                     return true;
 
             }
+
             @Override
             public View getDropDownView(int position, View convertView,
                                         ViewGroup parent) {
                 View view = super.getDropDownView(position, convertView, parent);
                 TextView tv = (TextView) view;
-                if(position == 0){
+                if (position == 0) {
                     tv.setTextColor(Color.GRAY);
-                }
-                else {
+                } else {
                     tv.setTextColor(Color.BLUE);
                 }
                 return view;
@@ -74,25 +81,67 @@ public class LogInActivity extends AppCompatActivity {
         spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
         tableno.setAdapter(spinnerArrayAdapter);
 
-        tableno.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-            }
 
+        //login
+        login = (Button) findViewById(R.id.login_button);
+        userid = (EditText) findViewById(R.id.waiter_id);
+        password = (EditText) findViewById(R.id.password);
+        a = new String[]{"12345", "23456"};
+        b = new String[]{"wait12345", "wait23456"};
+
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText
-                        (getApplicationContext(), "Select a Table no.", Toast.LENGTH_SHORT)
-                        .show();
+            public void onClick(View view) {
+
+                count2=0;
+
+                for (int i = 0; i < 2; i++)
+                {
+                    if (userid.getText().toString().equals(a[i]))
+                    {
+                        count2++;
+                        for (int j = 0; j < 2; j++)
+                        {
+                            if (password.getText().toString().equals(b[j]))
+                            {
+                                count2++;
+                            }
+                        }
+                    }
+                }
+                if (count2 == 2 )
+                {
+                    if(tableno.getSelectedItemPosition()>0)
+                    {
+                        Intent i = new Intent(LogInActivity.this, MenuActivity.class);
+                        startActivity(i);
+                        userid.setText("");
+                        password.setText("");
+                        tableno.setSelection(0);
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(),"Select a Table no.!!",Toast.LENGTH_SHORT).show();
+
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Wrong Credentials!!", Toast.LENGTH_SHORT).show();
+
+                }
+
 
             }
         });
+
     }
 
+}
 
     //This is the method to Bypass the log in screen. To be removed in production
-    public void bypass(View V) {
+    /*public void logIN(View V) {
         startActivity(new Intent(LogInActivity.this, MenuActivity.class));
-    }
-}
+    }*/
+
+
+
