@@ -2,17 +2,4 @@
     <string name="app_name">The Waiter Buddy</string>
     <string name="Rs">\u20B9</string>
 
-
-
-
-
-    //table no
-    <string-array name="table_no">
-                 <item>Table no.1</item>
-                 <item>Table no.2</item>
-                 <item>Table no.3</item>
-                 <item>Table no.4</item>
-                 <item>Table no.5</item>
-    </string-array>
-
 </resources>

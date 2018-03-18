@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="uvce.com.thewaiterbuddy.LogInActivity"
-    android:background="#ffffff">
+    android:background="#FFFFFF">
 
 
     <TextView
@@ -63,14 +63,18 @@
 
     <Spinner
         android:id="@+id/spinner_tableno"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
         android:padding="10dp"
         android:textColor="#ff0000"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:popupBackground="#ffffff"
+        android:layout_centerVertical="true"
+
+        />
 
 
 
