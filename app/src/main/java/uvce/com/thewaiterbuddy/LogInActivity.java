@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -134,6 +137,29 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+
+    //show password
+    public void showPass(View view) {
+        password.getText().toString();
+        boolean checked = ((CheckBox) view).isChecked();
+        switch(view.getId())
+        {
+            case R.id.show_password:
+                if (checked)
+                {
+                    password.setInputType(InputType.TYPE_CLASS_TEXT);
+                    password.setSelection(password.getText().length());
+                }
+                else
+                    {
+                    password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    password.setSelection(password.getText().length());
+                }
+                break;
+        }
     }
 
 }

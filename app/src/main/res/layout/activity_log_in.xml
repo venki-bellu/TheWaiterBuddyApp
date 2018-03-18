@@ -56,7 +56,6 @@
         android:layout_alignStart="@+id/password"
         android:layout_marginBottom="50dp"
         android:background="@drawable/shape"
-        android:onClick="bypass"
         android:text="Login"
         android:textColor="#ffffff" />
 
@@ -68,15 +67,24 @@
 
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="65dp"
         android:padding="10dp"
         android:popupBackground="#ffffff"
         android:textColor="#ff0000"
-        android:visibility="visible"
-        />
+        android:visibility="visible" />
 
-
-
+    <CheckBox
+        android:id="@+id/show_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/password"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="21dp"
+        android:text="Show Password"
+        android:textColor="@color/colorPrimary"
+        android:textSize="10sp"
+        android:backgroundTint="@color/colorPrimary"
+        android:onClick="showPass"/>
 
 
 </RelativeLayout>
