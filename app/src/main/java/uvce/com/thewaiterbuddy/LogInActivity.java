@@ -122,6 +122,7 @@ public class LogInActivity extends AppCompatActivity {
                         userid.setText("");
                         password.setText("");
                         tableno.setSelection(0);
+                        finish();
                     }
                     else
                         Toast.makeText(getApplicationContext(),"Select a Table no.!!",Toast.LENGTH_SHORT).show();
