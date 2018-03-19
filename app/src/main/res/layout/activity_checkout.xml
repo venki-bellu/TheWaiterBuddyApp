@@ -6,25 +6,61 @@
     tools:context="uvce.com.thewaiterbuddy.CheckoutActivity">
 
     <LinearLayout
+        android:id="@+id/checkouttitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="30dp"
+            android:text="Name"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="Quantity"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="Cost"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        android:layout_below="@id/checkouttitle">
 
         <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"/>
+            android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/totalPayable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/scroll_view"
+        android:layout_margin="10dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
 
     <Button
         android:id="@+id/confirmOrderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/scroll_view"
+        android:layout_below="@id/totalPayable"
         android:text="Confirm"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="70dp"
@@ -36,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/confirmOrderButton"
-        android:layout_below="@id/scroll_view"
+        android:layout_below="@id/totalPayable"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="40dp"
         android:background="@color/colorPrimaryDark"

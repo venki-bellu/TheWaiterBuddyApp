@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,11 @@ public class CheckoutActivity extends AppCompatActivity {
     private ArrayList<Double> foodItemsCost=new ArrayList<>();
     private ArrayList<Integer> foodItemsQuantity=new ArrayList<>();
     private ArrayList<Double> foodItemsTotalCost=new ArrayList<>();
+    private double totalPayableAmount=0;
+
+    TextView totalPayable;
+
+
 
     ListView list;
 
@@ -31,6 +37,7 @@ public class CheckoutActivity extends AppCompatActivity {
             foodItemsCost.add(checkoutItems.get(i).getCost());
             foodItemsQuantity.add(checkoutItems.get(i).getQuantity());
             foodItemsTotalCost.add(foodItemsCost.get(i)*foodItemsQuantity.get(i));
+            totalPayableAmount+=foodItemsTotalCost.get(i);
             Log.i(TAG, foodItemNames.get(i));
             Log.i(TAG,""+ foodItemsCost.get(i));  //Added to a string to parse into String from double
             Log.i(TAG,""+foodItemsQuantity.get(i));
@@ -42,6 +49,8 @@ public class CheckoutActivity extends AppCompatActivity {
         list=findViewById(R.id.list);
         list.setAdapter(adapter);
 
+        totalPayable=findViewById(R.id.totalPayable);
+        totalPayable.setText("Rs."+totalPayableAmount);
 
     }
 }
