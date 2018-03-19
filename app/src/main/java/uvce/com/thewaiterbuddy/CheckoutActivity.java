@@ -61,7 +61,8 @@ public class CheckoutActivity extends AppCompatActivity {
 
     public void cancelOrder(View v)
     {
-        Toast.makeText(this,"Order cancelled. You can modify your order",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Order cancelled.",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(CheckoutActivity.this,MenuActivity.class));
         finish();
     }
 }
