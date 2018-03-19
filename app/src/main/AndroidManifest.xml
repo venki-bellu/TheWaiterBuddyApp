@@ -15,17 +15,15 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".CheckoutActivity" />
-        <activity android:name=".SplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>>
-        </activity>
+        <activity android:name=".MenuActivity"
+            android:label="Place Your Order"/>
+        <activity android:name=".CheckoutActivity"
+            android:label="Confirm Your Order"/>
+        <activity android:name=".OrderPlacedActivity"
+            android:label="Order Placed"/>
     </application>
 
 </manifest>

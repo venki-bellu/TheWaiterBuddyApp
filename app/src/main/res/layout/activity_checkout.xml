@@ -65,7 +65,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="70dp"
         android:background="@color/colorPrimaryDark"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff"
+        android:onClick="confirmOrder"/>
 
     <Button
         android:id="@+id/cancelOrderButton"
@@ -77,6 +78,7 @@
         android:layout_marginLeft="40dp"
         android:background="@color/colorPrimaryDark"
         android:text="Cancel"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff"
+        android:onClick="cancelOrder"/>
 
 </RelativeLayout>

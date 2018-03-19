@@ -36,7 +36,7 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
         final Spinner tableno = (Spinner) findViewById(R.id.spinner_tableno);
-        String[] plants = new String[]{
+        final String[] plants = new String[]{
                 "Select a Table no.",
                 "Table no.1",
                 "Table no.2",
@@ -118,6 +118,8 @@ public class LogInActivity extends AppCompatActivity {
                     if(tableno.getSelectedItemPosition()>0)
                     {
                         Intent i = new Intent(LogInActivity.this, MenuActivity.class);
+                        Bundle bundle = new Bundle();
+                        i.putExtra("tableNum", plants[tableno.getSelectedItemPosition()]);
                         startActivity(i);
                         userid.setText("");
                         password.setText("");
