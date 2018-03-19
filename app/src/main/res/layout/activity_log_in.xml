@@ -83,8 +83,8 @@
         android:text="Show Password"
         android:textColor="@color/colorPrimary"
         android:textSize="10sp"
-        android:backgroundTint="@color/colorPrimary"
-        android:onClick="showPass"/>
+        android:onClick="showPass"
+        android:theme="@style/MyCheckBox"/>
 
 
 </RelativeLayout>
