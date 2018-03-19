@@ -23,7 +23,7 @@
         <activity android:name=".CheckoutActivity"
             android:label="Confirm Your Order"/>
         <activity android:name=".OrderPlacedActivity"
-            android:label="Order Placed"></activity>
+            android:label="Order Placed"/>
     </application>
 
 </manifest>

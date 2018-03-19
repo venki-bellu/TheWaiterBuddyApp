@@ -78,6 +78,7 @@
         android:layout_marginLeft="40dp"
         android:background="@color/colorPrimaryDark"
         android:text="Cancel"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff"
+        android:onClick="cancelOrder"/>
 
 </RelativeLayout>
