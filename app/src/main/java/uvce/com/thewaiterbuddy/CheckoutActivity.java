@@ -1,8 +1,10 @@
 package uvce.com.thewaiterbuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -48,6 +50,11 @@ public class CheckoutActivity extends AppCompatActivity {
 
         totalPayable=findViewById(R.id.totalPayable);
         totalPayable.setText("Rs."+totalPayableAmount);
+    }
 
+    public void confirmOrder(View v)
+    {
+        startActivity(new Intent(CheckoutActivity.this,OrderPlacedActivity.class));
+        finish();
     }
 }
