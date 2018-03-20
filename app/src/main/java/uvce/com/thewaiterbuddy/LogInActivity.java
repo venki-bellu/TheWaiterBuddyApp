@@ -37,17 +37,17 @@ public class LogInActivity extends AppCompatActivity {
 
         final Spinner tableno = (Spinner) findViewById(R.id.spinner_tableno);
         final String[] plants = new String[]{
-                "Select a Table no.",
-                "Table no.1",
-                "Table no.2",
-                "Table no.3",
-                "Table no.4",
-                "Table no.5",
-                "Table no.6",
-                "Table no.7",
-                "Table no.8",
-                "Table no.9",
-                "Table no.10",
+                "Select a Table number",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
 
         };
 
@@ -127,12 +127,12 @@ public class LogInActivity extends AppCompatActivity {
                         finish();
                     }
                     else
-                        Toast.makeText(getApplicationContext(),"Select a Table no.!!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Select a table number.",Toast.LENGTH_SHORT).show();
 
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
 
                 }
 

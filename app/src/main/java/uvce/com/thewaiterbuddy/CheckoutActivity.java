@@ -50,7 +50,8 @@ public class CheckoutActivity extends AppCompatActivity {
         list.setAdapter(adapter);
 
         totalPayable=findViewById(R.id.totalPayable);
-        totalPayable.setText("Rs."+totalPayableAmount);
+        String total = getResources().getString(R.string.Rs) + " " + totalPayableAmount;
+        totalPayable.setText(total);
     }
 
     public void confirmOrder(View v)

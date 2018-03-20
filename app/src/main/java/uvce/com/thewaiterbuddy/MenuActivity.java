@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -88,7 +89,7 @@ public class MenuActivity extends AppCompatActivity {
         foodItems.add(new FoodItem("Cheese N Corn", 190.00));
         foodItems.add(new FoodItem("Peppy Paneer", 180.00));
         foodItems.add(new FoodItem("Mexican Wave", 120.00));
-        foodItems.add(new FoodItem("5 Pepper", 290.00));
+//        foodItems.add(new FoodItem("5 Pepper", 290.00));
     }
 
     @Override
@@ -100,6 +101,11 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.i(TAG, "Checking out");
+
+        if (cartItems.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "You haven't selected any meal!", Toast.LENGTH_LONG).show();
+            return super.onOptionsItemSelected(item);
+        }
 
         Intent checkoutIntent = new Intent(MenuActivity.this, CheckoutActivity.class);
 
