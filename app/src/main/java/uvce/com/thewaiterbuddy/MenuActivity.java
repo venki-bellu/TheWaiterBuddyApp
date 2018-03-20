@@ -53,7 +53,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        tableNum = getIntent().getExtra("tableNum");
+        tableNum = getIntent().getExtras().getString("tableNum");
         Log.i(TAG, "Menu activity started");
 
         cartItems.clear();
@@ -105,7 +105,7 @@ public class MenuActivity extends AppCompatActivity {
         Intent checkoutIntent = new Intent(MenuActivity.this, CheckoutActivity.class);
 
         Bundle bundle = new Bundle();
-        bundle.putString("tableNum", tableNum);
+        checkoutIntent.putExtra("tableNum", tableNum);
         bundle.putParcelableArrayList(CartItem.TYPE, cartItems);
         checkoutIntent.putExtras(bundle);
 
