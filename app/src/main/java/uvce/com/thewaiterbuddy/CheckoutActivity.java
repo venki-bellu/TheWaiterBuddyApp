@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -55,6 +56,13 @@ public class CheckoutActivity extends AppCompatActivity {
     public void confirmOrder(View v)
     {
         startActivity(new Intent(CheckoutActivity.this,OrderPlacedActivity.class));
+        finish();
+    }
+
+    public void cancelOrder(View v)
+    {
+        Toast.makeText(this,"Order cancelled.",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(CheckoutActivity.this,MenuActivity.class));
         finish();
     }
 }
