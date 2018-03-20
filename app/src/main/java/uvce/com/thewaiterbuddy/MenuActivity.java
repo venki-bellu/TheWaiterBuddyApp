@@ -80,16 +80,16 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void populateFoodItems() {
-        foodItems.add(new FoodItem("Name 1", 100.00));
-        foodItems.add(new FoodItem("Name 2", 150.00));
-        foodItems.add(new FoodItem("Name 3", 50.00));
-        foodItems.add(new FoodItem("Name 4", 200.00));
-        foodItems.add(new FoodItem("Name 5", 130.00));
-        foodItems.add(new FoodItem("Name 6", 110.00));
-        foodItems.add(new FoodItem("Name 7", 90.00));
-        foodItems.add(new FoodItem("Name 8", 80.00));
-        foodItems.add(new FoodItem("Name 9", 123.00));
-        foodItems.add(new FoodItem("Name 10", 890.00));
+        foodItems.add(new FoodItem("Margherita", 100.00));
+        foodItems.add(new FoodItem("Farm House", 150.00));
+        foodItems.add(new FoodItem("Extravaganza", 150.00));
+        foodItems.add(new FoodItem("Veg Paradise", 200.00));
+        foodItems.add(new FoodItem("Fresh Veggie", 130.00));
+        foodItems.add(new FoodItem("Paneer Makhni", 110.00));
+        foodItems.add(new FoodItem("Cheese N Corn", 190.00));
+        foodItems.add(new FoodItem("Peppy Paneer", 180.00));
+        foodItems.add(new FoodItem("Mexican Wave", 120.00));
+        foodItems.add(new FoodItem("5 Pepper", 290.00));
     }
 
     @Override
