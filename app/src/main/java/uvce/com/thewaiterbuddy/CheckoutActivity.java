@@ -18,9 +18,6 @@ public class CheckoutActivity extends AppCompatActivity {
     private double totalPayableAmount=0;
 
     TextView totalPayable;
-
-
-
     ListView list;
 
     @Override

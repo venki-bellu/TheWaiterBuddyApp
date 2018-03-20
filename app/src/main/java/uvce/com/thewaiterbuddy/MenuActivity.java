@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
     public static final String TAG = "APPATHON";
+    private String tableNum;
     private static ArrayList<CartItem> cartItems = new ArrayList<>();
     private ArrayList<FoodItem> foodItems;
     private MenuAdapter menuAdapter;
@@ -52,6 +53,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        tableNum = getIntent().getExtra("tableNum");
         Log.i(TAG, "Menu activity started");
 
         cartItems.clear();
@@ -103,6 +105,7 @@ public class MenuActivity extends AppCompatActivity {
         Intent checkoutIntent = new Intent(MenuActivity.this, CheckoutActivity.class);
 
         Bundle bundle = new Bundle();
+        bundle.putString("tableNum", tableNum);
         bundle.putParcelableArrayList(CartItem.TYPE, cartItems);
         checkoutIntent.putExtras(bundle);
 
